@@ -20,17 +20,9 @@ class UserProfile extends Component
     public $new_password;
     public $confirm_password;
 
-    public function changeTabs()
+    public function changeTabs($status)
     {
-        if($this->general){
-            $this->general = false;
-        }else{
-            $this->general = true;
-        }
-        $this->emit('toast', [
-            'type' => 'success',
-            'message' => 'Changed'
-        ]);
+        $this->general = $status;
     }
 
     public function mount()
