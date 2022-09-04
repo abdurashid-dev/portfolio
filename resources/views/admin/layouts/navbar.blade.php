@@ -138,5 +138,6 @@
             </a>
             @endif
         </li>
+        <livewire:admin.user-dropdown/>
     </ul>
 </nav>
