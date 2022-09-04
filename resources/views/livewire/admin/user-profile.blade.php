@@ -27,11 +27,11 @@
                                 </li>
                                 <li class="list-group-item">
                                     <b>Created at</b>
-                                    <a class="float-right">{{($user->created_at)?$user->created_at->format('M d Y'):'No data'}}</a>
+                                    <a class="float-right">{{($user->created_at)?$user->created_at->format('d F Y'):'No data'}}</a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Updated at</b>
-                                    <a class="float-right">{{($user->updated_at)?$user->updated_at->format('M d Y'):'No data'}}</a>
+                                    <a class="float-right">{{($user->updated_at)?$user->updated_at->format('d F Y'):'No data'}}</a>
                                 </li>
                             </ul>
                             <a class="btn btn-primary btn-block">
@@ -74,7 +74,7 @@
                             @if($general == true)
                                 <div class="card">
                                     <div class="card-body">
-                                        <form wire:submit.prevent="formSubmit">
+                                        <form wire:submit.prevent="updateGeneralInfo()">
                                             <div class="form-group field-usersettingsform-username required">
                                                 <label for="usersettingsform-username">Fullname</label>
                                                 <input wire:model.lazy="name" type="text" id="usersettingsform-username"

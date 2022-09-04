@@ -2,15 +2,16 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class UserProfile extends Component
 {
+    protected $listeners = ['UserDataChanged' => '$refresh'];
     // basic vars
     public $title;
-    public $user;
     public $general = true;
 
     //fields
@@ -28,13 +29,33 @@ class UserProfile extends Component
     public function mount()
     {
         $this->title = 'User profile';
-        $this->user = \auth()->user();
         $this->name = \auth()->user()->name;
         $this->email = \auth()->user()->email;
     }
 
+    public function updateGeneralInfo()
+    {
+        $this->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users,email, ' . \auth()->user()->id,
+        ]);
+        $user = User::findOrFail(\auth()->user()->id);
+        $user->name = $this->name;
+        $user->email = $this->email;
+        $user->save();
+        $this->emit('UserDataChanged');
+        $this->emit('toast', [
+            'type' => 'success',
+            'message' => 'Successfully updated!'
+        ]);
+    }
+
     public function render()
     {
-        return view('livewire.admin.user-profile')->layout('admin.layouts.app');
+        empty($this->name) ? $this->name = Auth::user()->name : $this->name = $this->name;
+        empty($this->email) ? $this->email = Auth::user()->email : $this->email = $this->email;
+        return view('livewire.admin.user-profile', [
+            'user' => auth()->user()
+        ])->layout('admin.layouts.app');
     }
 }
