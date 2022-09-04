@@ -32,3 +32,9 @@ Route::middleware([
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie');
+
+//Profile
+Route::get('/profile', \App\Http\Livewire\Admin\UserProfile::class)->name('admin.profile');
+Route::post('/changeData', [AdminController::class, 'data'])->name('admin.data');
+Route::get('/password/index', [AdminController::class, 'password'])->name('admin.profile.password');
+Route::post('/password/index', [AdminController::class, 'passwordChange'])->name('admin.password.change.index');

@@ -13,7 +13,7 @@
         <li class="user-footer">
             <div class="d-flex justify-content-between">
                 <a class="btn btn-default btn-flat"
-                   href="#"><span
+                   href="{{route('admin.profile')}}"><span
                         class="fas fa-user-cog"></span> Profile</a>
                 <form id="logout-form" action="{{route('logout')}}" method="POST">
                     @csrf
