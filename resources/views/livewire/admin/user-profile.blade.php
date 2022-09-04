@@ -52,13 +52,13 @@
                                             <ul class="nav nav-pills ml-auto p-2">
                                                 <li class="nav-item">
                                                     <a wire:click="changeTabs" style="cursor: pointer;" class="nav-link
-                                                        @if($general == true) active @endif">
+                                                        @if($general == true) btn-primary text-white @endif">
                                                         <i class="fas fa-cogs"></i> General
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a wire:click="changeTabs" style="cursor: pointer;" class="nav-link cursor-pointer
-                                                        @if($general != true) active @endif ">
+                                                    <a wire:click="changeTabs" style="cursor: pointer;" class="nav-link
+                                                        @if($general != true) btn-primary text-white @endif ">
                                                         <i class="fa fa-lock"></i> Password
                                                     </a>
                                                 </li>
