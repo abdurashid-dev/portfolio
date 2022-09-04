@@ -74,7 +74,7 @@
                             @if($general == true)
                                 <div class="card">
                                     <div class="card-body">
-                                        <form wire:submit.prevent="updateGeneralInfo()">
+                                        <form wire:submit.prevent="updateGeneralInfo">
                                             <div class="form-group field-usersettingsform-username required">
                                                 <label for="usersettingsform-username">Fullname</label>
                                                 <input wire:model.lazy="name" type="text" id="usersettingsform-username"
@@ -105,25 +105,25 @@
                             @else
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="w0" wire:submit.prevent="passwordSubmit">
+                                        <form id="w0" wire:submit.prevent="updatePassword">
                                             @csrf
                                             <div class="form-group field-usersettingsform-password_old required">
                                                 <label
                                                     for="usersettingsform-password_old">Old password</label>
-                                                <input wire:model.lazy="password_old" type="password"
-                                                       id="usersettingsform-password_old"
-                                                       class="form-control" name="password_old"
+                                                <input wire:model.lazy="old_password" type="password"
+                                                       id="usersettingsform-old_password"
+                                                       class="form-control" name="old_password"
                                                        value="" aria-required="true">
-                                                <x-jet-input-error for="password_old" class="text-danger"/>
+                                                <x-jet-input-error for="old_password" class="text-danger"/>
                                             </div>
                                             <div class="form-group field-usersettingsform-password required">
                                                 <label
                                                     for="usersettingsform-password">New password</label>
-                                                <input wire:model.lazy="password" type="password"
-                                                       id="usersettingsform-password"
-                                                       class="form-control" name="password" value=""
+                                                <input wire:model.lazy="new_password" type="password"
+                                                       id="usersettingsform-new_password"
+                                                       class="form-control" name="new_password" value=""
                                                        aria-required="true">
-                                                <x-jet-input-error for="password" class="text-danger"/>
+                                                <x-jet-input-error for="new_password" class="text-danger"/>
                                             </div>
                                             <div class="form-group field-usersettingsform-password_repeat required">
                                                 <label

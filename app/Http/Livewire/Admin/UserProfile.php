@@ -19,7 +19,7 @@ class UserProfile extends Component
     public $email;
     public $old_password;
     public $new_password;
-    public $confirm_password;
+    public $password_confirmation;
 
     public function changeTabs($status)
     {
@@ -48,6 +48,27 @@ class UserProfile extends Component
             'type' => 'success',
             'message' => 'Successfully updated!'
         ]);
+    }
+
+    public function updatePassword()
+    {
+        $this->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+            'password_confirmation' => 'required|confirmed'
+        ]);
+        $user = User::findOrFail(\auth()->user()->id);
+        if (Hash::check($this->old_password, $user->password)){
+            $password = Hash::make($this->new_password);
+            $user->password = $password;
+            $user->save();
+            $this->emit('toast',);
+        }else{
+            $this->emit('toast', [
+                'type' => 'error',
+                'message' => 'The password you entered did not match the your old password!'
+            ]);
+        }
     }
 
     public function render()
