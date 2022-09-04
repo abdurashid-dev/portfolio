@@ -25,15 +25,6 @@ class UserProfile extends Component
         'password' => 'required|min:8|confirmed',
         'password_old' => 'required',
     ];
-    protected $messages = [
-        'name.required' => 'Bo\'sh bo\'lmasligi kerak',
-        'name.max' => '255 ta belgidan oshmasligi kerak!',
-        'login.required' => 'Bo\'sh bo\'lmasligi kerak',
-        'password.required' => 'Bo\'sh bo\'lmasligi kerak',
-        'password.min' => 'Parol 8 ta belgidan kam bo\'lmasligi kerak!',
-        'password.confirmed' => 'Parol tasdiqlash noto\'g\'ri!',
-        'password_old.required' => 'Bo\'sh bo\'lmasligi kerak',
-    ];
 
     public function mount()
     {
@@ -46,9 +37,8 @@ class UserProfile extends Component
             $field,
             array_merge([
                 'name' => 'required|max:255',
-                "login" => "required|unique:users,login, " . Auth::user()->id,
+                "email" => "required|unique:users,email, " . auth()->user()->id,
             ], $this->rulesPassword),
-            $this->messages
         );
     }
     public function passwordTab()
@@ -66,7 +56,6 @@ class UserProfile extends Component
         ]);
         $this->clearValidation();
         $this->general = true;
-
     }
 
     public function formSubmit()
@@ -74,9 +63,8 @@ class UserProfile extends Component
         $this->validate(
             [
                 'name' => 'required|max:255',
-                "login" => "required|unique:users,login, " . Auth::user()->id,
+                "email" => "required|unique:users,email, " . Auth::user()->id,
             ],
-            $this->messages
         );
         $user = Auth::user();
         $user->name = $this->name;
@@ -89,7 +77,6 @@ class UserProfile extends Component
     {
         $this->validate(
             $this->rulesPassword,
-            $this->messages
         );
         if (Hash::check($this->password_old, auth()->user()->password)) {
             $password = Hash::make($this->password);

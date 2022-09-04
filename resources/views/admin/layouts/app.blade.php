@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="{{asset('includes/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('includes/dist/css/adminlte.min.css')}}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{ asset('includes/plugins/toastr/toastr.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('includes/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    @livewireStyles
     @yield('styles')
 </head>
 
@@ -39,7 +42,7 @@
         <section class="content pt-3">
             <div class="container-fluid p-3">
                 @yield('content')
-                @if($slot)
+                @if(isset($slot))
                     {{$slot}}
                 @endif
             </div>
@@ -163,8 +166,11 @@
 <script src="{{asset('includes/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('includes/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- Toastr -->
+<script src="{{ asset('includes/plugins/toastr/toastr.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('includes/dist/js/adminlte.js')}}"></script>
+@livewireScripts
 @yield('scripts')
 </body>
 
