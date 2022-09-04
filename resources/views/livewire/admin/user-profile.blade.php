@@ -51,20 +51,14 @@
                                         <div class="col-auto">
                                             <ul class="nav nav-pills ml-auto p-2">
                                                 <li class="nav-item">
-                                                    <a wire:click="general" style="cursor: pointer;" class="nav-link
-                                                        @if($general == true)
-                                                        active
-                                                        @endif
-                                                        ">
+                                                    <a wire:click="changeTabs" style="cursor: pointer;" class="nav-link
+                                                        @if($general == true) active @endif">
                                                         <i class="fas fa-cogs"></i> General
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a wire:click="passwordTab" style="cursor: pointer;" class="nav-link cursor-pointer
-                                                        @if($general != true)
-                                                        active
-                                                        @endif
-                                                        ">
+                                                    <a wire:click="changeTabs" style="cursor: pointer;" class="nav-link cursor-pointer
+                                                        @if($general != true) active @endif ">
                                                         <i class="fa fa-lock"></i> Password
                                                     </a>
                                                 </li>
@@ -77,7 +71,6 @@
                     </div>
                     <div class="row">
                         <div class="col">
-
                             @if($general == true)
                                 <div class="card">
                                     <div class="card-body">
@@ -162,11 +155,4 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @push('scripts')
-        <script>
-            Livewire.on('UserDataChanged', () => {
-                toastr.success('Saved!');
-            });
-        </script>
-    @endpush
 </div>

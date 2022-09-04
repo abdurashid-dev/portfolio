@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>
+        @stack('title')
+    </title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -171,6 +173,11 @@
 <!-- AdminLTE App -->
 <script src="{{asset('includes/dist/js/adminlte.js')}}"></script>
 @livewireScripts
+<script>
+    Livewire.on('toast', ({type, message}) => {
+        toastr[type](message)
+    })
+</script>
 @yield('scripts')
 </body>
 
