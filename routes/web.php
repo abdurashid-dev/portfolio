@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::middleware([
     'auth:sanctum',
+    'admin',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
@@ -30,7 +31,7 @@ Route::middleware([
 });
 Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie')->middleware('auth');
 
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
 //Dashboard
     Route::get('/', [AdminController::class, 'index'])->name('index');
 //Profile
