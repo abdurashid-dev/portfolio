@@ -1,5 +1,5 @@
 <li class="nav-item">
-    <a href="{{route('admin')}}" class="nav-link @if (request()->is('admin')) active @endif">
+    <a href="{{route('admin.index')}}" class="nav-link @if (request()->is('admin')) active @endif">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
             Dashboard

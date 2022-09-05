@@ -28,13 +28,14 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie')->middleware('auth');
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-
-Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie');
-
+Route::prefix('admin')->name('admin.')->group(function () {
+//Dashboard
+    Route::get('/', [AdminController::class, 'index'])->name('index');
 //Profile
-Route::get('/profile', \App\Http\Livewire\Admin\UserProfile::class)->name('admin.profile');
-Route::post('/changeData', [AdminController::class, 'data'])->name('admin.data');
-Route::get('/password/index', [AdminController::class, 'password'])->name('admin.profile.password');
-Route::post('/password/index', [AdminController::class, 'passwordChange'])->name('admin.password.change.index');
+    Route::get('/profile', \App\Http\Livewire\Admin\UserProfile::class)->name('profile');
+    Route::post('/changeData', [AdminController::class, 'data'])->name('data');
+    Route::get('/password/index', [AdminController::class, 'password'])->name('profile.password');
+    Route::post('/password/index', [AdminController::class, 'passwordChange'])->name('password.change.index');
+});
