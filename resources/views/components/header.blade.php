@@ -4,7 +4,7 @@
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> {{__('words.dashboard')}}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
             <li class="breadcrumb-item active"><i class="{{$icon}}"></i> {{$title}}</li>
         </ol>
     </div>

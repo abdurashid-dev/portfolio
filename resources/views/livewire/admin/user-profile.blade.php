@@ -2,7 +2,7 @@
     @push('title')
         {{$title}}
     @endpush
-    {{--    <x-header title="{{$title}}" icon="fas fa-user"/>--}}
+        <x-header title="{{$title}}" icon="fas fa-user"/>
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
