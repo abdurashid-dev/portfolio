@@ -30,7 +30,7 @@ Route::middleware([
 });
 Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie')->middleware('auth');
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 //Dashboard
     Route::get('/', [AdminController::class, 'index'])->name('index');
 //Profile
