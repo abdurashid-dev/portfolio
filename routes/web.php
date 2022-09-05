@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Jetstream
 Route::middleware([
     'auth:sanctum',
     'admin',
@@ -29,6 +30,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//Cookies
 Route::get('/set-cookie/{cookie}', [AdminController::class, 'setCookie'])->name('setCookie')->middleware('auth');
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
