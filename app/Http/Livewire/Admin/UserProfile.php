@@ -18,7 +18,7 @@ class UserProfile extends Component
     public $name;
     public $email;
     public $old_password;
-    public $new_password;
+    public $password;
     public $password_confirmation;
 
     public function changeTabs($status)
@@ -54,12 +54,12 @@ class UserProfile extends Component
     {
         $this->validate([
             'old_password' => 'required',
-            'new_password' => 'required',
-            'password_confirmation' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
         ]);
         $user = User::findOrFail(\auth()->user()->id);
         if (Hash::check($this->old_password, $user->password)){
-            $password = Hash::make($this->new_password);
+            $password = Hash::make($this->password);
             $user->password = $password;
             $user->save();
             $this->emit('toast',);

@@ -110,7 +110,7 @@
                                             <div class="form-group field-usersettingsform-password_old required">
                                                 <label
                                                     for="usersettingsform-password_old">Old password</label>
-                                                <input wire:model.lazy="old_password" type="password"
+                                                <input wire:model="old_password" type="password"
                                                        id="usersettingsform-old_password"
                                                        class="form-control" name="old_password"
                                                        value="" aria-required="true">
@@ -119,16 +119,16 @@
                                             <div class="form-group field-usersettingsform-password required">
                                                 <label
                                                     for="usersettingsform-password">New password</label>
-                                                <input wire:model.lazy="new_password" type="password"
+                                                <input wire:model="password" type="password"
                                                        id="usersettingsform-new_password"
-                                                       class="form-control" name="new_password" value=""
+                                                       class="form-control" name="password" value=""
                                                        aria-required="true">
-                                                <x-jet-input-error for="new_password" class="text-danger"/>
+                                                <x-jet-input-error for="password" class="text-danger"/>
                                             </div>
                                             <div class="form-group field-usersettingsform-password_repeat required">
                                                 <label
                                                     for="usersettingsform-password_repeat">Confirm new password</label>
-                                                <input wire:model.lazy="password_confirmation" type="password"
+                                                <input wire:model="password_confirmation" type="password"
                                                        id="usersettingsform-password_repeat"
                                                        class="form-control" name="password_confirmation"
                                                        value="" aria-required="true">
