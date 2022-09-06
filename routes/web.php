@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicInfoController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,4 +48,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::post('/info/store', [BasicInfoController::class, 'store'])->name('info.store');
     Route::post('/info/avatar-store', [BasicInfoController::class, 'avatarStore'])->name('info.avatar.store');
     Route::post('/info/cv-store', [BasicInfoController::class, 'cvStore'])->name('info.cv.store');
+//Links
+    Route::resource('/links', LinkController::class);
+//    Route::prefix('links')->name('links.')->group(function(){
+//        Route::get('/', [LinkController::class, 'index'])->name('index');
+//    });
 });
