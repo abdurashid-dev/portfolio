@@ -20,5 +20,8 @@
         <div class="col-md-7 col-sm-12">
             @include('admin.info.info')
         </div>
+        <div class="col-md-5 col-sm-12">
+            @include('admin.info.cv')
+        </div>
     </div>
 @endsection

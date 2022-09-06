@@ -46,4 +46,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/info', [BasicInfoController::class, 'index'])->name('info.index');
     Route::post('/info/store', [BasicInfoController::class, 'store'])->name('info.store');
     Route::post('/info/avatar-store', [BasicInfoController::class, 'avatarStore'])->name('info.avatar.store');
+    Route::post('/info/cv-store', [BasicInfoController::class, 'cvStore'])->name('info.cv.store');
 });

@@ -19,16 +19,6 @@ class BasicInfoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -66,7 +56,7 @@ class BasicInfoController extends Controller
         $count = BasicInfo::count();
         if ($count == 0) {
             BasicInfo::create([
-                'image' => $newImageName
+                'avatar' => $newImageName
             ]);
         } else {
             $info = BasicInfo::first();
@@ -79,48 +69,28 @@ class BasicInfoController extends Controller
         return redirect()->route('admin.info.index')->with('success', 'Saved!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\BasicInfo $basicInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BasicInfo $basicInfo)
+    public function cvStore(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'cv' => 'required|mimes:pdf,jpg,jpeg,png,docx'
+        ]);
+        $cv = $request->cv;
+        $newCvName = time() . '-' . $cv->getClientOriginalName();
+        $cv->move(public_path('cv'), $newCvName);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\BasicInfo $basicInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BasicInfo $basicInfo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\BasicInfo $basicInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BasicInfo $basicInfo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\BasicInfo $basicInfo
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BasicInfo $basicInfo)
-    {
-        //
+        $count = BasicInfo::count();
+        if ($count == 0) {
+            BasicInfo::create([
+                'cv' => $newCvName
+            ]);
+        } else {
+            $info = BasicInfo::first();
+            if (!is_null($info->cv)){
+                unlink(public_path('cv/'. $info->cv));
+            }
+            $info->cv = $newCvName;
+            $info->save();
+        }
+        return redirect()->route('admin.info.index')->with('success', 'Saved!');
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('fullname')->nullable();
             $table->text('desc')->nullable();
             $table->string('email')->nullable();
+            $table->string('cv')->nullable();
             $table->timestamps();
         });
     }
