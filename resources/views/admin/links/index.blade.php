@@ -22,7 +22,8 @@
                         <td>{{$link->title}}</td>
                         <td><a href="{{$link->url}}">{{Str::limit($link->url, 20)}}</a></td>
                         <td class="d-flex">
-                            <a href="{{route('admin.links.edit', $link)}}" class="btn btn-success d-inline-block mr-3"><i
+                            <a href="{{route('admin.links.edit', $link)}}"
+                               class="btn btn-success d-inline-block mr-3"><i
                                     class="fas fa-pencil-alt"></i></a>
                             <form action="{{route('admin.links.destroy', $link)}}" method="POST">
                                 @csrf
@@ -39,7 +40,10 @@
                     </tr>
                 @endforelse
             </table>
+            <br>
+            <div class="float-right">
+                {{$links->links()}}
+            </div>
         </div>
-        {{$links->links()}}
     </div>
 @endsection
