@@ -6,6 +6,14 @@
         </p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.info.index')}}" class="nav-link @if (request()->is('admin/info*')) active @endif">
+        <i class="nav-icon fas fa-info-circle"></i>
+        <p>
+            Basic information
+        </p>
+    </a>
+</li>
 {{-- <li class="nav-item menu-open">
     <a href="#" class="nav-link active">
         <i class="nav-icon fas fa-tachometer-alt"></i>
