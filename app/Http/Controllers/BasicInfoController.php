@@ -32,11 +32,26 @@ class BasicInfoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'fullname' => 'sometimes',
+            'email' => 'sometimes',
+            'desc' => 'sometimes'
+        ]);
+        $count = BasicInfo::count();
+        if ($count == 0){
+            BasicInfo::create($data);
+        }else{
+            $info = BasicInfo::first();
+            $info->fullname = $data['fullname'];
+            $info->email = $data['email'];
+            $info->desc = $data['desc'];
+            $info->save();
+        }
+        return redirect()->route('admin.info.index')->with('success', 'Saved!');
     }
 
     /**
