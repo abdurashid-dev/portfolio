@@ -3,5 +3,5 @@
     Admin dashboard
 @endsection
 @section('content')
-    admin dashboard
+    admin dashboard test
 @endsection
