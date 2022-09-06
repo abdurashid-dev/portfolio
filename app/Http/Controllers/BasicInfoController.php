@@ -31,7 +31,7 @@ class BasicInfoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
@@ -42,9 +42,9 @@ class BasicInfoController extends Controller
             'desc' => 'sometimes'
         ]);
         $count = BasicInfo::count();
-        if ($count == 0){
+        if ($count == 0) {
             BasicInfo::create($data);
-        }else{
+        } else {
             $info = BasicInfo::first();
             $info->fullname = $data['fullname'];
             $info->email = $data['email'];
@@ -54,10 +54,35 @@ class BasicInfoController extends Controller
         return redirect()->route('admin.info.index')->with('success', 'Saved!');
     }
 
+    public function avatarStore(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|mimes:jpg,jpeg,png|max:5048'
+        ]);
+        $image = $request->image;
+        $newImageName = time() . '-' . $image->getClientOriginalName();
+        $image->move(public_path('images'), $newImageName);
+
+        $count = BasicInfo::count();
+        if ($count == 0) {
+            BasicInfo::create([
+                'image' => $newImageName
+            ]);
+        } else {
+            $info = BasicInfo::first();
+            if (!is_null($info->avatar)){
+                unlink(public_path('images/'. $info->avatar));
+            }
+            $info->avatar = $newImageName;
+            $info->save();
+        }
+        return redirect()->route('admin.info.index')->with('success', 'Saved!');
+    }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BasicInfo  $basicInfo
+     * @param \App\Models\BasicInfo $basicInfo
      * @return \Illuminate\Http\Response
      */
     public function show(BasicInfo $basicInfo)
@@ -68,7 +93,7 @@ class BasicInfoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\BasicInfo  $basicInfo
+     * @param \App\Models\BasicInfo $basicInfo
      * @return \Illuminate\Http\Response
      */
     public function edit(BasicInfo $basicInfo)
@@ -79,8 +104,8 @@ class BasicInfoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BasicInfo  $basicInfo
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\BasicInfo $basicInfo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, BasicInfo $basicInfo)
@@ -91,7 +116,7 @@ class BasicInfoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\BasicInfo  $basicInfo
+     * @param \App\Models\BasicInfo $basicInfo
      * @return \Illuminate\Http\Response
      */
     public function destroy(BasicInfo $basicInfo)
