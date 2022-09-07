@@ -6,7 +6,7 @@
     <x-header title="Links" icon="fas fa-link"/>
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.links.create')}}" class="btn btn-primary float-right">Create new</a>
+            <a href="{{route('admin.links.create')}}" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Create new</a>
         </div>
         <div class="card-body table-responsive">
             <table class="table table-bordered">

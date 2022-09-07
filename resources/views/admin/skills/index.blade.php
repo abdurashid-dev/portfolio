@@ -3,7 +3,7 @@
     Skills
 @endsection
 @section('content')
-    <x-header title="Skills" icon="fa fa-php"/>
+    <x-header title="Skills" icon="fas fa-tasks"/>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

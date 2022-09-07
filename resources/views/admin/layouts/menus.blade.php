@@ -24,7 +24,7 @@
 </li>
 <li class="nav-item">
     <a href="{{route('admin.skills.index')}}" class="nav-link @if (request()->is('admin/skills*')) active @endif">
-        <i class="nav-icon fa fa-php"></i>
+        <i class="nav-icon fas fa-tasks"></i>
         <p>
             Skillz
         </p>
