@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="createModalLabel">Create skill</h5>
-                <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
+                <button type="button" class="btn btn-primary btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
             </div>
             <form action="{{route('admin.skills.store')}}" method="POST">
                 <div class="modal-body">
