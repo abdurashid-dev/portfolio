@@ -38,6 +38,14 @@
         </p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.projects.index')}}" class="nav-link @if (request()->is('admin/projects*')) active @endif">
+        <i class="nav-icon fas fa-trophy"></i>
+        <p>
+            Projects
+        </p>
+    </a>
+</li>
 {{-- <li class="nav-item menu-open">
     <a href="#" class="nav-link active">
         <i class="nav-icon fas fa-tachometer-alt"></i>

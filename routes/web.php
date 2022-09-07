@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicInfoController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\WorkController;
 use Illuminate\Support\Facades\Route;
@@ -59,4 +60,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('/skills', SkillController::class);
 //Works
     Route::resource('/works', WorkController::class);
+//Projects
+    Route::resource('/projects', ProjectController::class);
 });
