@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 @section('title')
-    Create work
+    Create project
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('includes/plugins/summernote/summernote-bs4.min.css')}}">
 @endsection
 @section('content')
-    <x-headers title="Create" parent="Works" parentIcon="fas fa-laptop-house" parentRoute="admin.works.index"/>
+    <x-headers title="Create" parent="Projects" parentIcon="fas fa-laptop-house" parentRoute="admin.projects.index"/>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.works.store')}}" method="POST">
+            <form action="{{route('admin.projects.store')}}" method="POST">
                 @csrf
-                @include('admin.works.form')
+                @include('admin.projects.form')
             </form>
         </div>
     </div>

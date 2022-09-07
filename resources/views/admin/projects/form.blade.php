@@ -6,9 +6,18 @@
     @enderror
 </div>
 <div class="mb-3">
-    <label for="timeInput" class="form-label">Time interval</label>
-    <input type="text" class="form-control" id="timeInput" name="time" value="{{$work->time ?? old('time')}}">
-    @error('time')
+    <label for="demoUrlInput" class="form-label">Live demo url</label>
+    <input type="text" class="form-control" id="demoUrlInput" name="demo_url"
+           value="{{$work->demo_url ?? old('demo_url')}}">
+    @error('demo_url')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
+<div class="mb-3">
+    <label for="codeUrlInput" class="form-label">Code url</label>
+    <input type="text" class="form-control" id="codeUrlInput" name="code_url"
+           value="{{$work->code_url ?? old('code_url')}}">
+    @error('code_url')
     <span class="text-danger">{{$message}}</span>
     @enderror
 </div>
