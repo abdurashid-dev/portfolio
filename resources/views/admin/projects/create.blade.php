@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{asset('includes/plugins/summernote/summernote-bs4.min.css')}}">
 @endsection
 @section('content')
-    <x-headers title="Create" parent="Projects" parentIcon="fas fa-laptop-house" parentRoute="admin.projects.index"/>
+    <x-headers title="Create" parent="Projects" parentIcon="fas fa-trophy" parentRoute="admin.projects.index"/>
     <div class="card">
         <div class="card-body">
             <form action="{{route('admin.projects.store')}}" method="POST">

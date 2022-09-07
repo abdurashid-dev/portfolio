@@ -1,18 +1,18 @@
 @extends('admin.layouts.app')
 @section('title')
-    Edit work
+    Edit project
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{asset('includes/plugins/summernote/summernote-bs4.min.css')}}">
 @endsection
 @section('content')
-    <x-headers title="Edit" parent="Works" parentIcon="fas fa-laptop-house" parentRoute="admin.works.index"/>
+    <x-headers title="Edit" parent="Projects" parentIcon="fas fa-trophy" parentRoute="admin.projects.index"/>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('admin.works.update', $work)}}" method="POST">
+            <form action="{{route('admin.projects.update', $project)}}" method="POST">
                 @csrf
                 @method('PUT')
-                @include('admin.works.form')
+                @include('admin.projects.form')
             </form>
         </div>
     </div>
