@@ -3,5 +3,6 @@
     Admin dashboard
 @endsection
 @section('content')
-    admin dashboard test
+    <h1>Dashboard</h1>
+    <p>What should I put here? 🤔</p>
 @endsection
