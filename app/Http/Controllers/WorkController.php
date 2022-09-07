@@ -26,7 +26,7 @@ class WorkController extends Controller
     public function create()
     {
         $work = new Work();
-        return view('admin.works.index', compact('work'));
+        return view('admin.works.create', compact('work'));
     }
 
     /**

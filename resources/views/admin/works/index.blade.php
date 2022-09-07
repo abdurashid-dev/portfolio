@@ -19,20 +19,20 @@
                 </tr>
                 @forelse($works as $work)
                     <tr>
-                        <th>{{$loop->iteration}}</th>
-                        <th>{{$work->title}}</th>
-                        <th>{{$work->time}}</th>
-                        <th>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$work->title}}</td>
+                        <td>{{$work->time}}</td>
+                        <td>
                             <a href="{{route('admin.works.show', $work)}}" class="btn btn-primary"><i
                                     class="fas fa-eye"></i></a>
                             <a href="{{route('admin.works.edit', $work)}}" class="btn btn-success"><i
                                     class="fas fa-pencil-alt"></i></a>
-                            <form action="{{route('admin.works.destroy', $work)}}" method="POST">
+                            <form action="{{route('admin.works.destroy', $work)}}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                             </form>
-                        </th>
+                        </td>
                     </tr>
                 @empty
                     <tr>
