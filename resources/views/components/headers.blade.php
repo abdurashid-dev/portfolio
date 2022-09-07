@@ -3,7 +3,7 @@
         <h3 class="m-0 text-dark">{{$title}}</h3>
     </div>
     <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
+        <ol class="breadcrumb float-sm-right" style="background-color: transparent">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
             </li>
             <li class="breadcrumb-item"><a href="{{ route($parentRoute) }}"><i class="{{$parentIcon}}"></i> {{$parent}}</a></li>
