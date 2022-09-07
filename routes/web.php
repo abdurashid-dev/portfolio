@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicInfoController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +54,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 //    Route::prefix('links')->name('links.')->group(function(){
 //        Route::get('/', [LinkController::class, 'index'])->name('index');
 //    });
+//Skills
+    Route::resource('/skills', SkillController::class);
 });
