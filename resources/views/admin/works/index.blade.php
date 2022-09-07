@@ -3,7 +3,7 @@
     Works
 @endsection
 @section('content')
-    <x-header title="works" icon="fas fa-laptop-house"/>
+    <x-header title="Works" icon="fas fa-laptop-house"/>
     <div class="card">
         <div class="card-header">
             <a href="{{route('admin.works.create')}}" class="btn btn-primary float-right"><i class="fas fa-plus"></i>
@@ -30,7 +30,9 @@
                             <form action="{{route('admin.works.destroy', $work)}}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">
+                                    <i
+                                        class="fas fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
