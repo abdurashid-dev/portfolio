@@ -20,4 +20,9 @@ class FrontendController extends Controller
         $projects = Project::orderByDesc('created_at')->get();
         return view('frontend.index', compact('info', 'links', 'skills', 'works', 'projects'));
     }
+
+    public function project(Project $project): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('fronend.project', compact('project'));
+    }
 }

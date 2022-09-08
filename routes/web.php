@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Frontend
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index'])->name('home');
 
 //Jetstream
 Route::middleware([
