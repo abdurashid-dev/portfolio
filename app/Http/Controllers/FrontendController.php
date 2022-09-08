@@ -9,7 +9,7 @@ use App\Models\Skill;
 use App\Models\Work;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\OpenGraph;
-use Artesaos\SEOTools\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -18,11 +18,11 @@ class FrontendController extends Controller
     {
         SEOMeta::setTitle('Abdurashid Abdumominov');
         SEOMeta::setDescription('Abdurashid Abdumominovning rasmiy sayti');
-        SEOMeta::setCanonical(app('url'));
+        SEOMeta::setCanonical('https://abdurashid.com');
 
         OpenGraph::setDescription('Abdurashid Abdumominovning rasmiy sayti');
         OpenGraph::setTitle('Abdurashid Abdumominov');
-        OpenGraph::setUrl(app('url'));
+        OpenGraph::setUrl('https://abdurashid.com');
         OpenGraph::addProperty('type', 'articles');
 //        OpenGraph::addImage(asset('frontend/img/logo.png'));
 
