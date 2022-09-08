@@ -1,6 +1,7 @@
 @extends('frontend.layout')
 @section('content')
     <div id="container--main">
+
         @if(!is_null($info))
             <section id="wrapper--hero" class="section--page">
                 <img id="profile-pic" src="
@@ -17,14 +18,12 @@
                 </div>
             </section>
         @endif
+
         <section class="section--page">
             <div id="socials--list">
                 @foreach($links as $link)
                     <a href="{{$link->url}}" target="_blank">{{$link->title}}</a>
                 @endforeach
-                {{--            <a href="https://twitter.com/dennisivy11" target="_blank">Twitter</a>--}}
-                {{--            <a href="https://www.linkedin.com/in/dennis-ivanov/" target="_blank">Linkedin</a>--}}
-                {{--            <a href="https://github.com/divanov11" target="_blank">Github</a>--}}
                 @if(!is_null($info))
                     @if(!is_null($info->cv))
                         <a href="{{asset('cv/'. $info->cv)}}" target="_blank">Download Resume</a>
@@ -66,15 +65,12 @@
 
         <section class="section--page">
             <h2>Projects & Accomplishments</h2>
-
             @foreach($projects as $project)
                 <div class="card--project">
                     <a href="project1.html"><span>🏆 </span>{{$project->title}}</a>
                 </div>
             @endforeach
-
         </section>
-
 
     </div>
 @endsection
