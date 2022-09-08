@@ -23,6 +23,6 @@ class FrontendController extends Controller
 
     public function project(Project $project): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        return view('fronend.project', compact('project'));
+        return view('frontend.project', compact('project'));
     }
 }

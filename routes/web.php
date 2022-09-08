@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 //Frontend
 Route::get('/', [FrontendController::class, 'index'])->name('home');
-
+Route::get('/project/{project}',[FrontendController::class, 'project'])->name('project');
 //Jetstream
 Route::middleware([
     'auth:sanctum',

@@ -67,7 +67,7 @@
             <h2>Projects & Accomplishments</h2>
             @foreach($projects as $project)
                 <div class="card--project">
-                    <a href="project1.html"><span>🏆 </span>{{$project->title}}</a>
+                    <a href="{{route('project', $project)}}"><span>🏆 </span>{{$project->title}}</a>
                 </div>
             @endforeach
         </section>
