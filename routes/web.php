@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicInfoController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SkillController;
@@ -18,10 +19,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//Frontend
+Route::get('/', [FrontendController::class, 'index']);
 
 //Jetstream
 Route::middleware([
