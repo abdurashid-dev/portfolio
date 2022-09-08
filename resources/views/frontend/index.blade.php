@@ -55,10 +55,9 @@
     <section class="section--page">
         <h2>Skills</h2>
         <div id="wrapper--techstack__items">
-            <div class="card--techstack"><span>Python, JavaScript, NodeJS</span></div>
-            <div class="card--techstack"><span>Django, Express, Flask, FastAPI</span></div>
-            <div class="card--techstack"><span>React, Next JS</span></div>
-            <div class="card--techstack"><span>Postgres, MongoDB, MySQL</span></div>
+            @foreach($skills as $skill)
+                <div class="card--techstack"><span>{{$skill->title}}</span></div>
+            @endforeach
         </div>
     </section>
 
