@@ -35,10 +35,10 @@
         <section class="section--page">
             <h2>Skills & Qualifications</h2>
             <ul id="qualifications--list">
-                <li>✔️ 7 Years experience with front & backend development</li>
+                <li>✔️ A Year experience with front & backend development</li>
                 <li>✔️ Extensive knowledge in API & Database Design.</li>
-                <li>✔️ Experienced content creator on YouTube & community leader</li>
-                <li>✔️ 7 Years experience with running Adwords campaigns & SEO</li>
+                <li>✔️ A year experience with build CRM systems</li>
+                <li>✔️ Work experience with websockets and cashing</li>
             </ul>
         </section>
 
