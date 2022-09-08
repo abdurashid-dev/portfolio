@@ -27,13 +27,18 @@
         </section>
     @endif
     <section class="section--page">
-
         <div id="socials--list">
-            <a href="https://youtube.com/c/dennisivy" target="_blank">Youtube</a>
-            <a href="https://twitter.com/dennisivy11" target="_blank">Twitter</a>
-            <a href="https://www.linkedin.com/in/dennis-ivanov/" target="_blank">Linkedin</a>
-            <a href="https://github.com/divanov11" target="_blank">Github</a>
-            <a href="./assets/resume.pdf" target="_blank">Download Resume</a>
+            @foreach($links as $link)
+                <a href="{{$link->url}}" target="_blank">{{$link->title}}</a>
+            @endforeach
+            {{--            <a href="https://twitter.com/dennisivy11" target="_blank">Twitter</a>--}}
+            {{--            <a href="https://www.linkedin.com/in/dennis-ivanov/" target="_blank">Linkedin</a>--}}
+            {{--            <a href="https://github.com/divanov11" target="_blank">Github</a>--}}
+            @if(!is_null($info))
+                @if(!is_null($info->cv))
+                    <a href="{{asset('cv/'. $info->cv)}}" target="_blank">Download Resume</a>
+                @endif
+            @endif
         </div>
     </section>
 
@@ -48,8 +53,7 @@
     </section>
 
     <section class="section--page">
-        <h2>Tech stack</h2>
-
+        <h2>Skills</h2>
         <div id="wrapper--techstack__items">
             <div class="card--techstack"><span>Python, JavaScript, NodeJS</span></div>
             <div class="card--techstack"><span>Django, Express, Flask, FastAPI</span></div>
