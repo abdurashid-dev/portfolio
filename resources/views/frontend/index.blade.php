@@ -12,16 +12,17 @@
 <div id="container--main">
     @if(!is_null($info))
         <section id="wrapper--hero" class="section--page">
-            <img id="profile-pic" src="{{asset('images/'.$info->avatar)}}" alt="Abdurashid's image">
-
+            <img id="profile-pic" src="
+                    @if(!is_null($info->avatar))
+                        {{asset('images/'.$info->avatar)}}
+                    @else
+                        {{asset('defaultAvatar.png')}}
+                    @endif
+            " alt="Abdurashid's image">
             <div>
-                <h1 id="user-name">Dennis Ivanov</h1>
-                <p id="bio">Software developer, developer advocate at <a href="https://www.agora.io/en/"
-                                                                         target="_blank">Agora</a>,
-                    Udemy <a href="https://www.udemy.com/user/dennis-ivanov-5/" target="_blank">instructor</a>, <a
-                        href="https://www.youtube.com/c/dennisivy" target="_blank">YouTuber</a> with 166k+ subs and
-                    contributor at <a href="https://youtu.be/PtQiiknWUcI?t=6" target="_blank">Traversy Media</a>.</p>
-                <p id="email">👉 dennis@dennisivy.com</p>
+                <h1 id="user-name">{{$info->fullname}}</h1>
+                <p id="bio">{!! $info->desc !!}</p>
+                <p id="email">👉 {{$info->email ?? 'Email here'}}</p>
             </div>
         </section>
     @endif
